@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../view-post/view-post.module').then( m => m.ViewPostPageModule)
       },
       {
+        path: 'edit-post',
+        loadChildren: () => import('../edit-post/edit-post.module').then( m => m.EditPostPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
