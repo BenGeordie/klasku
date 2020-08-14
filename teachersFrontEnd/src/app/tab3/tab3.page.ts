@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab3',
@@ -9,7 +11,9 @@ export class Tab3Page {
 
   public items: any = [];
 
-  constructor() {
+  constructor(
+    private navCtrl: NavController
+  ) {
     this.items = [
       { expanded: false },
       { expanded: false },
@@ -37,5 +41,8 @@ export class Tab3Page {
         return listItem;
       });
     }
+  }
+  sharingSettings() {
+    this.navCtrl.navigateForward('tabs/sharing');
   }
 }

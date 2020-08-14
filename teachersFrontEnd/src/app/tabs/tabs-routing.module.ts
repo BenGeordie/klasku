@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../edit-post/edit-post.module').then( m => m.EditPostPageModule)
       },
       {
+        path: 'sharing',
+        loadChildren: () => import('../sharing/sharing.module').then( m => m.SharingPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
