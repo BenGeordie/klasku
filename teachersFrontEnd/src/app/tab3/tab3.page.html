@@ -1,47 +1,44 @@
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2">
-        <ion-icon name="information-circle-outline"></ion-icon>
-      </ion-col>
-      <ion-col>
 
-        <ion-avatar>
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-text color = "danger">
-          <h1>Emma Wat Sun</h1>
-        </ion-text>
-        
-        <h3>Sekolah Contoh</h3>
-      </ion-col>
-      <ion-col size = "2">
-        <ion-icon name="settings-outline"></ion-icon>
+  <img style="position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;" src="../../assets/redcircle.png"/>
+
+  <ion-grid class="above-z-index">
+
+    <ion-row>
+      <ion-col style="width: 100vw;">
+        <ion-icon  class="top-icons" style="float: left;" name="information-circle-outline"></ion-icon>
+        <ion-icon class="top-icons" style="float: right;" name="settings-outline"></ion-icon>
       </ion-col>
     </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-justify-content-center">
+        <ion-avatar style="width: 95px; height: 95px;">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-text style="text-align: center; font-size: 26px;" color = "secondary">
+          <h1 style="margin-top: 10px; margin-bottom: 0px;">Emma Wat Sun</h1>
+        </ion-text>
+        <ion-text style="text-align: center;">
+          <h3 style="font-size: 14px; margin-top: 0px; margin-bottom: 4px; color: rgba(255, 255, 255, 0.5);">Sekolah Contoh</h3>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-justify-content-center">
+        <ion-button class="sharing-settings" (click) = "sharingSettings()">Sharing Settings</ion-button>
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
-  <ion-button color="light" (click) = "sharingSettings()">Sharing Settings</ion-button>
-
-
-  <app-expandable expandHeight="100px" [expanded]="item.expanded">
-    <p>
-      Hello there.
-    </p>
-    <p>
-      Hello there.
-    </p>
-    <p>
-      Hello there.
-    </p>
-    <p>
-      Hello there.
-    </p>
-    <p>
-      Hello there.
-    </p>
-    <p>
-      Hello there.
-    </p>
-  </app-expandable>
 </ion-content>
