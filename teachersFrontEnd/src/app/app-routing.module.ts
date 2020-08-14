@@ -11,18 +11,11 @@ const routes: Routes = [
     path: 'login-page',
     loadChildren: () => import('./login-page/login-page.module').then( m => m.LoginPagePageModule)
   },
-  {
-    path: 'edit-post',
-    loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
-  },
+  
   {
     path: 'classroom-profile',
     loadChildren: () => import('./classroom-profile/classroom-profile.module').then( m => m.ClassroomProfilePageModule)
   },
-  {
-    path: 'sharing',
-    loadChildren: () => import('./sharing/sharing.module').then( m => m.SharingPageModule)
-  }
 ];
 @NgModule({
   imports: [
