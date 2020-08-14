@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-page',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPagePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController
+  ) { }
+
+  //for shaun... so this gets acctivated when login is pressed
+  login() {
+    this.navCtrl.navigateForward('tabs');
+  }
 
   ngOnInit() {
   }
