@@ -1,9 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>editPost</ion-title>
+  <ion-toolbar class="topbar-shape">
+    <ion-icon class="back-arrow" color="secondary" name="arrow-back-outline"></ion-icon>
+    <ion-title color="secondary">Make Post</ion-title>
+    <ion-text slot="end" style="color: #99F3FF; padding-right: 6px; font-size: 17px; font-weight: bold; margin: 0;">Share</ion-text>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+
+<ion-grid style="height: 100%">
+  
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-justify-content-center">
+      Profile
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-justify-content-center">
+      Title, Caption Card
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-justify-content-center">
+      <h1 class="class-list-title">What class does this post belong to?</h1>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-justify-content-center">
+      <ion-button class="class-button" color="tertiary">
+        <h1 class="class-button-text" slot="start">Class Name</h1>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
+
+</ion-grid>
 
 </ion-content>
