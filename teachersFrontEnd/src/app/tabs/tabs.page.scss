@@ -5,3 +5,7 @@ ion-tab-bar {
 ion-tab-button {
     --color-selected: #E76969;
 }
+
+ion-tab-button:active {
+    color: #E76969;
+}
