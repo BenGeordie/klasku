@@ -8,41 +8,57 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  public down : boolean = true;
+  public lowLimit: number = 3;
+  public limit: number = this.lowLimit;
 
-  public items: any = [];
+  public classes = [];
 
   constructor(
     private navCtrl: NavController
   ) {
-    this.items = [
-      { expanded: false },
-      { expanded: false },
-      { expanded: false },
-      { expanded: false },
-      { expanded: false },
-      { expanded: false },
-      { expanded: false },
-      { expanded: false },
-      { expanded: false }
-    ];
+    this.down = true;
   }
 
+  ngOnInit() {
+    this.classes = [
+      {
+        name : 'ButterFly Class',
+        students: ['Hugo', 'Hubert', 'Vian', 'Fino'],
+        imageUrl: 'https://via.placeholder.com/100'
+      },
+      {
+        name : 'Caterpillar Class',
+        students: ['Andy', 'Buzz', 'Woody', 'Barbie'],
+        imageUrl: 'https://via.placeholder.com/100'
+      },
+      {
+        name : 'Physics 1A',
+        students: ['Gailelo', 'Newton', 'Woody', 'Barbie'],
+        imageUrl: 'https://via.placeholder.com/100'
+      },
+      {
+        name : 'Physics 1B',
+        students: ['Andrew', 'Raindy', 'Sebastian', 'Nate'],
+        imageUrl: 'https://via.placeholder.com/100'
+      }]
+  }
+  flip() {
+    this.down = !this.down;
+  }
 
-  expandItem(item): void {
-    if (item.expanded) {
-      item.expanded = false;
-    } else {
-      this.items.map(listItem => {
-        if (item == listItem) {
-          listItem.expanded = !listItem.expanded;
-        } else {
-          listItem.expanded = false;
-        }
-        return listItem;
-      });
-    }
+  increaseLimit() { 
+    this.limit = this.classes.length;
+  }
+
+  decreaseLimit() {
+    this.limit = this.lowLimit;
   }
   sharingSettings() {
     this.navCtrl.navigateForward('tabs/sharing');
+  }
+
+  viewClassDetail() {
+    this.navCtrl.navigateForward('tabs/classroom-profile');
   }
 }

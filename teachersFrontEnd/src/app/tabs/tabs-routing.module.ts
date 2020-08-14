@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../edit-post/edit-post.module').then( m => m.EditPostPageModule)
       },
       {
+        path: 'classroom-profile',
+        loadChildren: () => import('../classroom-profile/classroom-profile.module').then( m => m.ClassroomProfilePageModule)
+      },
+      {
         path: 'sharing',
         loadChildren: () => import('../sharing/sharing.module').then( m => m.SharingPageModule)
       },

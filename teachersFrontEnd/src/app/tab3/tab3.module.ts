@@ -5,9 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 
-
-import { ExpandableComponent } from "../components/expandable/expandable.component";
-
 import { Tab3PageRoutingModule } from './tab3-routing.module'
 
 @NgModule({
@@ -18,6 +15,6 @@ import { Tab3PageRoutingModule } from './tab3-routing.module'
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     Tab3PageRoutingModule,
   ],
-  declarations: [Tab3Page, ExpandableComponent]
+  declarations: [Tab3Page]
 })
 export class Tab3PageModule {}

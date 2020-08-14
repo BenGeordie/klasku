@@ -1,18 +1,25 @@
-import { Component, AfterViewInit, Input, ViewChild,  ElementRef, Renderer2 } from "@angular/core";
+import { Component, OnInit, Input } from '@angular/core';
+import { IonItem } from '@ionic/angular';
 
 @Component({
   selector: 'app-expandable',
   templateUrl: './expandable.component.html',
-  styleUrls: ['./expandable.component.scss']
+  styleUrls: ['./expandable.component.scss'],
 })
-export class ExpandableComponent implements AfterViewInit {
-  @ViewChild('expandWrapper', { read: ElementRef }) expandWrapper: ElementRef;
-  @Input('expanded') expanded: boolean = false;
-  @Input('expandHeight') expandHeight: string = '150px';
+export class ExpandableComponent implements OnInit {
 
-  constructor(public renderer: Renderer2) {}
+  @Input('expanded') expanded;
+  @Input('expandHeight') expandedHeight;
+  
+
+
+  constructor() { }
+
+  ngOnInit() {}
 
   ngAfterViewInit() {
-    this.renderer.setStyle(this.expandWrapper.nativeElement, 'max-height', this.expandHeight);
+    console.log(this.expanded);
+    console.log(this.expandedHeight);
   }
+
 }
