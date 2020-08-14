@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./login-page/login-page.module').then( m => m.LoginPagePageModule)
   },
   {
-    path: 'view-post',
-    loadChildren: () => import('./view-post/view-post.module').then( m => m.ViewPostPageModule)
-  },
-  {
     path: 'edit-post',
     loadChildren: () => import('./edit-post/edit-post.module').then( m => m.EditPostPageModule)
   },
