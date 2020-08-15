@@ -35,16 +35,40 @@ ion-avatar {
     left: 0;
 }
 
-.sharing-settings {
-    width: 172.12px;
+.view-class-photos {
+    width: 100px;
     height: 27px;
-    margin: 0 auto;
     margin-top: 10px;
+    font-size: 12px;
     --border-radius: 5px;
     --box-shadow: 0px 2px 5px 0px rgba(94,94,94,1);
     --color: #E76969;
     --background: white;
     --background-activated: #ECECEC;
+}
+
+.sharing-settings {
+    width: 120px;
+    height: 27px;
+    margin-top: 6px;
+    font-size: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 0px rgba(94,94,94,1);
+    color: #E76969;
+    background: white;
+    background-activated: #ECECEC;
+}
+
+.sharing {
+    width: 100px;
+    height: 27px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px 0px rgba(94,94,94,1);
+    color: white;
+    background: #E76969;
+    background-activated: #CA4545;
 }
 
 .ion-justify-content-center {
@@ -68,4 +92,13 @@ ion-avatar {
 
 .class-info-row {
     
+}
+
+.sharing-settings .select-interface-option {
+    --color: red;
+}
+
+  
+ion-select::part(placeholder) {
+
 }

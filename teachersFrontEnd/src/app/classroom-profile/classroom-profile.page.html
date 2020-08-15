@@ -93,13 +93,39 @@
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
-      <ion-col style="padding-top: 15px;" class="ion-justify-content-center">
-        <ion-button class="sharing-settings" (click) = "sharingSettings()">View Class Photos</ion-button>
+      <ion-col size="auto" style="padding-top: 15px;" class="ion-justify-content-center">
+        <ion-button class="view-class-photos" (click) = "sharingSettings()">View Photos</ion-button>
+      </ion-col>
+
+      <ion-col size="auto" style="padding-top: 15px;" class="ion-justify-content-center">
+          <ion-select interface="popover" class="sharing-settings">
+            <ion-select-option value="daily">Share Daily</ion-select-option>
+            <ion-select-option value="weekly">Share Weekly</ion-select-option>
+            <ion-select-option value="biweekly">Share Biweekly</ion-select-option>
+          </ion-select>     
+         
+      </ion-col>
+
+      <ion-col size="auto" style="padding-top: 15px;" class="ion-justify-content-center">
+        <ion-button class="view-class-photos" (click)="presentAlert()">Share Early</ion-button>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <app-with-picture title="Enrolled Students" [classes]="classes" limited= "true"></app-with-picture>
       </ion-col>
     </ion-row>
 
+    <ion-row>
+      <ion-col>
+        <app-contact-list title = "Recent Parent Chats" [chats]="parentChats"></app-contact-list>
+      </ion-col>
+    </ion-row>
+    
+        
   </ion-grid>
 
-  <app-with-picture title="Your Classes" [classes]="classes" limited= "true"></app-with-picture>
-  <app-contact-list title = "Recent Parent Chats" [chats]="parentChats"></app-contact-list>
+  
 </ion-content>
