@@ -4,7 +4,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+
+import { Chart } from 'chart.js';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+
+import { ComponentsModule } from '../components/components.module';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
@@ -13,8 +17,9 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    ComponentsModule,
+    Tab2PageRoutingModule,
+    Ng2GoogleChartsModule,
   ],
   declarations: [Tab2Page]
 })
