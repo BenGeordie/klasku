@@ -48,7 +48,7 @@ const IMAGESAMPLE = {
     time: new Date(),
 };
 
-export async function getClient() {
+async function getClient() {
     const appId = 'klasku-owyck';
     const client = Stitch.hasAppClient(appId)
         ? Stitch.getAppClient(appId)
@@ -61,7 +61,7 @@ export async function getClient() {
 }
 
 // If nothing or null is passed to the client argument, the function calls getClient() by default.
-export async function collection() {
+async function collection() {
     const client = await getClient();
     return client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas").db(DB).collection(COL);
 }
