@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassroomProfilePage implements OnInit {
 
+  public parentChats = [];
+
   constructor() { }
 
   ngOnInit() {
+    this.parentChats = [
+      {
+        name: 'Hengy Setiawan',
+        phoneNum: '+12345'
+      },
+      {
+        name: 'Lidia Gunawan',
+        phoneNum: '+12345'
+      },
+      {
+        name: 'Bianca Kurniawan',
+        phoneNum: '+12345'
+      }
+    ];
   }
 
 }
