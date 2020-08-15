@@ -54,4 +54,16 @@ export class Tab2Page {
     return 'XX'
   }
 
+  getTotalMessages() {
+    return 'XX'
+  }
+
+  getTotalStudents() {
+    return 'XX'
+  }
+
+  getTotalPosts() {
+    return 'XX'
+  }
+
 }

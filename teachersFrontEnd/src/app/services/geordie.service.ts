@@ -69,12 +69,12 @@ export class GeordieService {
 // If nothing or null is passed to the client argument, the function calls getClient() by default.
   public static async collection() {
     const client = await GeordieService.getClient();
-    return client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas").db(this.DB).collection(this.COL);
+    return client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db(this.DB).collection(this.COL);
   }
 
   public async getChat() {
     const col = await GeordieService.collection();
-    return GeordieService.get(await col.findOne({id: GeordieService.CHATTYPE}), "chat");
+    return GeordieService.get(await col.findOne({id: GeordieService.CHATTYPE}), 'chat');
   }
 
   public async getAllPictures() {
@@ -87,7 +87,7 @@ export class GeordieService {
 
   public async searchImage(searchString, callback) {
     const client = await GeordieService.getClient();
-    client.callFunction("searchPictures", [searchString]).then(result => {
+    client.callFunction('searchPictures', searchString).then(result => {
       callback(result) // Output: 7
     });
   }
@@ -98,7 +98,7 @@ export class GeordieService {
     reader.onload = async function(e)  {
       console.log(e.target.result);
       const cloudRes = await fetch(
-          "https://api.cloudinary.com/v1_1/deqpjsxud/image/upload", {
+          'https://api.cloudinary.com/v1_1/deqpjsxud/image/upload', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
             body: "file=" + encodeURIComponent(e.target.result as string) +
@@ -180,7 +180,7 @@ export class GeordieService {
   public async newPictureWatcher(callback) {
     const col = await GeordieService.collection();
     const stream = await col.watch({
-      "fullDocument.type": GeordieService.CONTENTTYPE,
+      'fullDocument.type': GeordieService.CONTENTTYPE,
       "operationType": "insert"
     });
     stream.onNext((event) => {
