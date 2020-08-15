@@ -8,72 +8,64 @@
 
 <ion-content>
 <form>
-<ion-grid style="height: 100%">
-  
-  <ion-row class="ion-justify-content-center">
-    <ion-col class="ion-justify-content-center">
-      Post Picture
-    </ion-col>
-  </ion-row>
-  <ion-card style="width: 76vw; margin: 0; padding: 0; background: white; margin-left: 10vw; margin-right: 12vw;">
-    <ion-row class="ion-justify-content-center title-caption-rows">
-      <ion-col class="ion-justify-content-center">
-        <ion-input style="--padding-end: 0; padding-right: 0; margin-left: 0vw; margin-right: 0vw;" placeholder="Enter Title Here..."></ion-input>
+  <ion-grid style="height: 100%">
+    
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-justify-content-center" size="6" 
+            *ngFor="let photo of photos; index as position">
+            <ion-avatar style="width: 235px; height: 235px; --border-radius: 15px;">
+              <ion-img class="profile-photo" src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}"></ion-img>
+            </ion-avatar>
       </ion-col>
     </ion-row>
-  
-    <ion-row class="ion-justify-content-center title-caption-rows">
+    <ion-card style="width: 76vw; margin: 0; padding: 0; background: white; margin-left: 10vw; margin-right: 12vw;">
+      <ion-row class="ion-justify-content-center title-caption-rows">
+        <ion-col class="ion-justify-content-center">
+          <ion-input style="--padding-end: 0; padding-right: 0; margin-left: 0vw; margin-right: 0vw;" placeholder="Enter Title Here..."></ion-input>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="ion-justify-content-center title-caption-rows">
+        <ion-col class="ion-justify-content-center">
+          <ion-textarea style="--padding-end: 0; padding-right: 0; margin-left: 0vw; margin-right: 0vw;" placeholder="Enter Caption Here..."></ion-textarea>
+        </ion-col>
+      </ion-row>  
+    </ion-card>
+
+    
+
+    <ion-row class="ion-justify-content-center">
       <ion-col class="ion-justify-content-center">
-        <ion-textarea style="--padding-end: 0; padding-right: 0; margin-left: 0vw; margin-right: 0vw;" placeholder="Enter Caption Here..."></ion-textarea>
+        <h1 style="margin-bottom: 0;" class="class-list-title">What class does this post belong to?</h1>
       </ion-col>
-    </ion-row>  
-  </ion-card>
+    </ion-row>
 
-  
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="padding: 0" class="ion-justify-content-center">
+        <!-- This is one bvutton for tye clas buton -->
+        <ion-button style="display: block" class="class-button" color="tertiary">
+          <ion-grid style="padding-left: 0; padding-right: 0; height: 100% ; width: 100%;">
+            <ion-row class="ion-justify-content-center">
+              <ion-col style="padding: 0; margin-left: 0;" class="ion-justify-content-center">
+                <span>
+                  <h1 class="class-button-text" slot="start">Class 1A</h1>
+                </span>  
+              </ion-col>
+              <ion-col size="auto" style="padding-right: 0; margin-right: 0;" class="ion-justify-content-center">
+                <ion-icon class="caret" color="secondary" name="caret-forward-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+    </ion-row>
 
-  <ion-row class="ion-justify-content-center">
-    <ion-col class="ion-justify-content-center">
-      <h1 style="margin-bottom: 0;" class="class-list-title">What class does this post belong to?</h1>
-    </ion-col>
-  </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-justify-content-center">
+        <ion-button color="tertiary" class="queue-post-button" (click) = "queuePost()">Queue Post</ion-button>
+      </ion-col>
+    </ion-row>
 
-  <ion-row class="ion-justify-content-center">
-    <ion-col style="padding: 0" class="ion-justify-content-center">
-      <!-- This is one bvutton for tye clas buton -->
-      <ion-button style="display: block" class="class-button" color="tertiary">
-        <ion-grid style="padding-left: 0; padding-right: 0; height: 100% ; width: 100%;">
-          <ion-row class="ion-justify-content-center">
-            <ion-col style="padding: 0; margin-left: 0;" class="ion-justify-content-center">
-              <span>
-                <h1 class="class-button-text" slot="start">Class 1A</h1>
-              </span>  
-            </ion-col>
-            <ion-col size="auto" style="padding-right: 0; margin-right: 0;" class="ion-justify-content-center">
-              <ion-icon class="caret" color="secondary" name="caret-forward-outline"></ion-icon>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-button>
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="ion-justify-content-center">
-    <ion-col class="ion-justify-content-center">
-      <ion-button color="tertiary" class="queue-post-button" (click) = "queuePost()">Queue Post</ion-button>
-    </ion-col>
-  </ion-row>
-
-
-  <ion-row>
-    <ion-col size="6" 
-      *ngFor="let photo of photos; index as position">
-      <ion-img src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}"></ion-img>
-    </ion-col>
-  </ion-row>
-
-
-
-
-</ion-grid>
+  </ion-grid>
 </form>
 </ion-content>
