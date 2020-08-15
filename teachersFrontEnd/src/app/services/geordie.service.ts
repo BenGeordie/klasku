@@ -122,6 +122,30 @@ export class GeordieService {
     reader.readAsDataURL(file);
   }
 
+  public async uploadImageBase64(file, title, caption, time, classRoom, teacher) {
+    const cloudRes = await fetch(
+        "https://api.cloudinary.com/v1_1/deqpjsxud/image/upload", {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
+          body: "file=" + encodeURIComponent(file) +
+              "&api_key=643636984455417&signature=de8e536b88a8491d0b42120fda812e642377a1af"
+        });
+    const cloudJson = await cloudRes.json();
+    if (cloudJson && cloudJson.url) {
+      const url = cloudJson.url;
+      const doc = {
+        type: GeordieService.CONTENTTYPE,
+        mediaUrl: url,
+        title: title,
+        caption: caption,
+        class: classRoom,
+        teacher: teacher,
+        time: time ? time : new Date(),
+      };
+      return (await GeordieService.collection()).insertOne(doc);
+    }
+  };
+
   public async sendMessage(message) {
     const client = await GeordieService.getClient();
     client.callFunction("sendWhatsappMessage", [message]).then(result => {
