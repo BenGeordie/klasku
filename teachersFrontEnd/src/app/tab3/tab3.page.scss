@@ -27,10 +27,12 @@ ion-content {
     width: 172.12px;
     height: 27px;
     margin: 0 auto;
-    margin-top: 0px;
+    margin-top: 10px;
     --border-radius: 5px;
     --box-shadow: 0px 2px 5px 0px rgba(94,94,94,1);
     --color: #E76969;
+    --background: white;
+    --background-activated: #ECECEC;
 }
 
 .ion-justify-content-center {
