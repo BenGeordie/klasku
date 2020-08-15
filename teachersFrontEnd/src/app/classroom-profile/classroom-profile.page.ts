@@ -10,6 +10,7 @@ import { AlertController } from '@ionic/angular';
 export class ClassroomProfilePage implements OnInit {
 
   public parentChats = [];
+  public classes = [];
 
   ngOnInit() {
     this.parentChats = [
@@ -26,6 +27,27 @@ export class ClassroomProfilePage implements OnInit {
         phoneNum: '+12345'
       }
     ];
+    this.classes = [
+      {
+        name : 'ButterFly Class',
+        students: ['Hugo', 'Hubert', 'Vian', 'Fino'],
+        imageUrl: 'https://via.placeholder.com/100'
+      },
+      {
+        name : 'Caterpillar Class',
+        students: ['Andy', 'Buzz', 'Woody', 'Barbie'],
+        imageUrl: 'https://via.placeholder.com/100'
+      },
+      {
+        name : 'Physics 1A',
+        students: ['Gailelo', 'Newton', 'Woody', 'Barbie'],
+        imageUrl: 'https://via.placeholder.com/100'
+      },
+      {
+        name : 'Physics 1B',
+        students: ['Andrew', 'Raindy', 'Sebastian', 'Nate'],
+        imageUrl: 'https://via.placeholder.com/100'
+      }];
   }
 
 

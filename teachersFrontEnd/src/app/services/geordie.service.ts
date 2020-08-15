@@ -4,7 +4,7 @@ import {
   RemoteMongoClient,
   Stitch
 } from "mongodb-stitch-browser-sdk";
-import { DummyService } from './dummy.service'
+import { DummyService } from './dummy.service';
 
 @Injectable({
   providedIn: 'root'
