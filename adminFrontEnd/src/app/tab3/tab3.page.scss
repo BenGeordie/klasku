@@ -1,0 +1,49 @@
+ion-content {
+    --ion-background-color: #F9F7F3;
+    // --background: #fff url('../../assets/dashboard-background.png') no-repeat center top / auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.above-z-index {
+    z-index: 50;
+}
+
+.top-icons {
+    color: rgba(255, 255, 255, 0.5);
+    width: 24px;
+    height: 24px;
+}
+
+.red-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sharing-settings {
+    width: 172.12px;
+    height: 27px;
+    margin: 0 auto;
+    margin-top: 0px;
+    --border-radius: 5px;
+    --box-shadow: 0px 2px 5px 0px rgba(94,94,94,1);
+    --color: #E76969;
+}
+
+.ion-justify-content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ion-justify-content-start {
+    justify-content: flex-start;
+}
+
+.ion-justify-content-end {
+    justify-content: flex-end;
+    float: right;
+}

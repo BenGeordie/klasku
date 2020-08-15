@@ -1,0 +1,28 @@
+.vertical {
+    float: left;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.vertical  > *{
+    display :block;
+    width: 100%;
+}
+
+ion-content {
+    --ion-background-color: #F9F7F3;
+}
+
+.login-button {
+    --background: #E76969; 
+    margin-left: auto;
+    margin-right: auto; 
+    width: 110px; 
+    margin-top: 25px; 
+    margin-bottom: 70px;
+    box-shadow: 0px 3px 5px 0px rgba(128,128,128,1);
+}
