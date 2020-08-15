@@ -48,68 +48,73 @@ export const GETPICTURE = (doc) => GU.get(doc, "picture");
 export const GETBIO = (doc) => GU.get(doc, "bio");
 export const GETSENDFREQUENCY = (doc) => GU.get(doc, "frequency");
 
-export const newSchool = (client) => {
-    const user = authUser(client);
-    return {
-        type: SCHOOLTYPE,
-        name: "",
-        adminAuthId: user.id,
-        principal: "",
-        phoneNumber: "",
-        picture: ""
-    };
+const school = {
+    name: "",
+    principal: "",
+    teachers: [
+        {
+            name: "",
+            picture: "",
+            classes: [""]
+        }
+    ],
+    classes: [
+        {
+            name: "",
+            picture: "",
+            students: [
+                {
+                    name: "",
+                    picture: ""
+                }
+            ]
+        }
+    ]
 };
 
-export const newTeacher = (client) => {
-    const user = authUser(client);
-    return {
-        type: TEACHERTYPE,
-        adminAuthId: user.id,
-        schoolId: "",
-        school: "",
-        name: "",
-        phoneNumber: "",
-        teacherAuthId: "",
-        picture: "",
-        bio: ""
-    };
+const teacher = {
+    name: "",
+    picture: "",
+    school: "",
+    classes: [
+        {
+            name: "",
+            picture: "",
+            students: [
+                {
+                    name: "",
+                    picture: "",
+                    parentNumber: ""
+                }
+            ]
+        }
+    ],
+    chat: [
+        { // parent
+            parent: true,
+            message: "",
+            mediaUrl: "",
+            mediaType: "",
+            sentiment: 0,
+            time: new Date()
+        }, { // teacher
+            message: "",
+            time: new Date()
+        }
+    ]
 };
 
-export const newClass = (client, teacher) => {
-    const user = authUser(client);
-    return {
-        type: CLASSTYPE,
-        name: "",
-        adminAuthId: user.id,
-        schoolId: "",
-        school: "",
-        teacherAuthId: "",
-        teacherId: "",
-        teacher: "",
-        picture: "",
-        frequency: "",
-        students: []
-    };
-};
-
-export const newContent = (client) => {
-    const user = authUser(client);
-    return {
-        type: CONTENTTYPE,
-        adminAuthId: user.id,
-        schoolId: "",
-        school: "",
-        teacherAuthId: "",
-        teacherId: "",
-        teacher: "",
-        classId: "",
-        class: "",
-        picture: "",
-        title: "",
-        caption: "",
-        created: new Date()
-    };
-};
+export async function getClient() {
+    const appId = 'klasku-owyck';
+    const client = Stitch.hasAppClient(appId)
+        ? Stitch.getAppClient(appId)
+        : Stitch.initializeAppClient(appId);
+    if (!client.auth.isLoggedIn) {
+        const credential = new AnonymousCredential();
+        await client.auth.loginWithCredential(credential);
+    }
+    return client;
+}
 
 // If nothing or null is passed to the client argument, the function calls getClient() by default.
 export async function collection() {
@@ -137,21 +142,6 @@ export async function searchImage(searchString, callback) {
     client.callFunction("searchPictures", searchString).then(result => {
         callback(result) // Output: 7
     });
-}
-
-// Retrieve Stitch App client if initialized, initialize a new instance otherwise. Handles redirects and automatic
-// anonymous login.
-// IMPORTANT: Call in a useEffect() with an appropriate dependency so this is not repeatedly called.
-export async function getClient() {
-    const appId = 'klasku-owyck';
-    const client = Stitch.hasAppClient(appId)
-        ? Stitch.getAppClient(appId)
-        : Stitch.initializeAppClient(appId);
-    if (!client.auth.isLoggedIn) {
-        const credential = new AnonymousCredential();
-        await client.auth.loginWithCredential(credential);
-    }
-    return client;
 }
 
 export async function uploadImage(file, title, caption, time, classRoom) {
