@@ -52,6 +52,7 @@ const IMAGESAMPLE = {
     caption: "",
     class: "",
     teacher: "",
+    path: [],
     time: new Date(),
 };
 
