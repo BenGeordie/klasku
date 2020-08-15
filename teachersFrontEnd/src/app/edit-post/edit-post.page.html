@@ -30,8 +30,20 @@
 
   <ion-row class="ion-justify-content-center">
     <ion-col class="ion-justify-content-center">
-      <ion-button class="class-button" color="tertiary">
-        <h1 class="class-button-text" slot="start">Class Name</h1>
+      <!-- This is one bvutton for tye clas buton -->
+      <ion-button style="display: block" class="class-button" color="tertiary">
+        <ion-grid style="padding-left: 0; padding-right: 0; height: 100% ; width: 100%;">
+          <ion-row class="ion-justify-content-center">
+            <ion-col style="padding-left: 0; margin-left: 0;" class="ion-justify-content-center">
+              <span>
+                <h1 class="class-button-text" slot="start">Class Name</h1>
+              </span>  
+            </ion-col>
+            <ion-col size="auto" style="padding-right: 0; margin-right: 0;" class="ion-justify-content-center">
+              <ion-icon class="caret" color="secondary" name="caret-forward-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-button>
     </ion-col>
   </ion-row>
