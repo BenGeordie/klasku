@@ -40,6 +40,14 @@ const routes: Routes = [
         loadChildren: () => import('../sharing/sharing.module').then( m => m.SharingPageModule)
       },
       {
+        path: 'admin-classroom',
+        loadChildren: () => import('../admin-classroom/admin-classroom.module').then( m => m.AdminClassroomPageModule)
+      },
+      {
+        path: 'admin-teacher',
+        loadChildren: () => import('../admin-teacher/admin-teacher.module').then( m => m.AdminTeacherPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

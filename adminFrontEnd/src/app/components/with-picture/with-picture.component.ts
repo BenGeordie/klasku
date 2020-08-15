@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-with-picture',
@@ -8,15 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WithPictureComponent implements OnInit {
 
   @Input() title: string;
-  @Input() classes;
+  @Input() data: [];
   @Input() limited: string;
+  @Input() navigationRoute: string;
 
   public down = true;
-  public limit : number;
-  public needButton : boolean;
-  public needLimit : boolean;
+  public limit: number;
+  public needButton: boolean;
+  public needLimit: boolean;
 
-  constructor() {
+  constructor(private NavCtrl: NavController) {
     this.down = true;
    }
 
@@ -25,12 +27,13 @@ export class WithPictureComponent implements OnInit {
   ngOnInit() {
     this.needLimit = (this.limited === 'true');
     console.log(this.needLimit);
+    console.log(this.data);
     if (this.needLimit === true) {
       this.limit = 3;
       console.log(this.limit);
       this.needButton = true;
     } else {
-      this.limit = this.classes.length;
+      this.limit = this.data.length;
       this.needButton = false;
     }
   }
@@ -40,11 +43,15 @@ export class WithPictureComponent implements OnInit {
   }
 
   increaseLimit() {
-    this.limit = this.classes.length;
+    this.limit = this.data.length;
   }
 
   decreaseLimit() {
     this.limit = 3;
+  }
+
+  navigateTo() {
+    this.NavCtrl.navigateForward(this.navigationRoute);
   }
 
 }
