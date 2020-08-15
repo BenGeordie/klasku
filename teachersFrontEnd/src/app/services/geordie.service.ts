@@ -5,6 +5,7 @@ import {
   Stitch
 } from "mongodb-stitch-browser-sdk";
 import { DummyService } from './dummy.service'
+import sha from 'sha';
 
 @Injectable({
   providedIn: 'root'
@@ -98,7 +99,7 @@ export class GeordieService {
     reader.onload = async function(e)  {
       console.log(e.target.result);
       const cloudRes = await fetch(
-          'https://api.cloudinary.com/v1_1/deqpjsxud/image/upload', {
+          'https://api.cloudinary.com/v1_1/dejr26gaj/image/upload', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
             body: "file=" + encodeURIComponent(e.target.result as string) +
@@ -123,12 +124,15 @@ export class GeordieService {
   }
 
   public async uploadImageBase64(file, title, caption, time, classRoom, teacher) {
+    const timestamp = Math.round((new Date()).getTime() / 1000);
+    const secret = "iQGiAgXkaFyd-4L4fFF9mWyQucQ";
+    const signature = sha("timestamp=" + timestamp + secret);
     const cloudRes = await fetch(
         "https://api.cloudinary.com/v1_1/dejr26gaj/image/upload", {
           method: 'POST',
           headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
           body: "file=" + encodeURIComponent(file) +
-              "&api_key=712697848369561&signature=de8e536b88a8491d0b42120fda812e642377a1af"
+              "&api_key=712697848369561&signature=" + signature
         });
     const cloudJson = await cloudRes.json();
     if (cloudJson && cloudJson.url) {
