@@ -49,14 +49,14 @@ export const school =  {
     teachers: [
         {
             name: "Emma Wat Sun",
-            picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597412405/geordie_aiif5u.png",
+            picture: "https://cdn-cms.f-static.net/uploads/2169602/2000_crop_5cd4cc2f96e35_5cd4cbe12c6bc.jpg",
             classes: ["Agama 1A", "Matematika 1A"]
         }
     ],
     classes: [
         {
             name: "Agama 1A",
-            picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597412356/sample.jpg",
+            picture: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Elementary_classroom_in_Alaska.jpg/200px-Elementary_classroom_in_Alaska.jpg",
             students: [
                 {
                     name: "Benito Geordie",
