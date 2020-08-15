@@ -4,6 +4,7 @@ import {
   RemoteMongoClient,
   Stitch
 } from "mongodb-stitch-browser-sdk";
+import { DummyService } from './dummy.service'
 
 @Injectable({
   providedIn: 'root'
@@ -86,7 +87,7 @@ export class GeordieService {
 
   public async searchImage(searchString, callback) {
     const client = await GeordieService.getClient();
-    client.callFunction("searchPictures", searchString).then(result => {
+    client.callFunction("searchPictures", [searchString]).then(result => {
       callback(result) // Output: 7
     });
   }
@@ -123,7 +124,17 @@ export class GeordieService {
 
   public async sendMessage(message) {
     const client = await GeordieService.getClient();
-    client.callFunction("sendWhatsappMessage", message).then(result => {
+    client.callFunction("sendWhatsappMessage", [message]).then(result => {
+      console.log(result) // Output: 7
+    });
+  }
+
+  public async sendPastWeek() {
+    const client = await GeordieService.getClient();
+    const school = DummyService.teacher.school;
+    const teacher = DummyService.teacher.name;
+    const classroom = DummyService.teacher.classes[0].name;
+    client.callFunction("sendPastWeek", [school, teacher, classroom]).then(result => {
       console.log(result) // Output: 7
     });
   }
