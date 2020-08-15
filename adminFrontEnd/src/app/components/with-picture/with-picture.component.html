@@ -1,19 +1,30 @@
-<ion-card>
-  <ion-list>
-    <ion-list-header>
+<ion-card style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;" color="secondary">
+  <ion-list lines="none" color="secondary">
+    <ion-list-header style="--background: white; --color: #E76969; padding-bottom: 4px;" >
       {{title}}
     </ion-list-header>
 
-    <ion-item *ngFor = "let dat of data | slice:0:limit; let i=index" (click) = "navigateTo()">
+    <ion-item style="--background: white;" *ngFor = "let class of classes | slice:0:limit; let i=index">
       <ion-avatar slot="start">
-        <img src={{dat.imageUrl}}>
+        <img src={{class.imageUrl}}>
       </ion-avatar>
       <ion-label>
-        <h2>{{dat.title}}</h2>
-        <p>{{dat.subtitle[0]}}</p>
+        <h2 style="font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+        ">{{class.name}}</h2>
+        <p style="font-family: Montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        ">{{class.students[0]}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
-  <ion-icon *ngIf = "down === true && needButton === true" (click) = "flip()" (click) = "increaseLimit()" name="chevron-down-outline"></ion-icon>
-  <ion-icon *ngIf = "down === false && needButton === true" (click) = "flip()" (click) = "decreaseLimit()" name="chevron-up-outline"></ion-icon>
+  <ion-icon style="width: 100%; color: #E76969" *ngIf = "down === true && needButton === true" (click) = "flip()" (click) = "increaseLimit()" name="chevron-down-outline"></ion-icon>
+  <ion-icon style="width: 100%; color: #E76969" *ngIf = "down === false && needButton === true" (click) = "flip()" (click) = "decreaseLimit()" name="chevron-up-outline"></ion-icon>
 </ion-card>

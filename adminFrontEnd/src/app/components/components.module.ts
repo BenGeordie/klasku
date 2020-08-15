@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { WithPictureComponent } from './with-picture/with-picture.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { AnalyticsCardComponent } from './analytics-card/analytics-card.component';
 
 @NgModule({
     imports: [ CommonModule, FormsModule, IonicModule],
-    declarations: [WithPictureComponent, ContactListComponent],
-    exports: [WithPictureComponent, ContactListComponent]
+    declarations: [WithPictureComponent, ContactListComponent, AnalyticsCardComponent],
+    exports: [WithPictureComponent, ContactListComponent, AnalyticsCardComponent]
 })
 export class ComponentsModule {}
