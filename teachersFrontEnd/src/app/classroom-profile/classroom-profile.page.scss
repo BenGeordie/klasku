@@ -99,6 +99,10 @@ ion-avatar {
 }
 
   
-ion-select::part(placeholder) {
+.my-custom-class .okay {
+    background: #E76969;
+  }
 
+ion-alert {
+    --background: gray;
 }

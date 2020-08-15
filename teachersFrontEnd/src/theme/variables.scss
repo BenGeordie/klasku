@@ -253,3 +253,21 @@
 
   font-family: "Montserrat", serif !important;
 }
+
+.cancel {
+  color: black !important;
+  font-weight: bold;
+}
+
+.okay {
+  color: lightskyblue !important;
+  font-weight: bold;
+}
+
+.radio {
+  --color--activated: salmon !important;
+}
+
+.frequency-alert {
+  --background: salmon;
+}
