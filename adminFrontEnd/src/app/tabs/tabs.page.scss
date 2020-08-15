@@ -1,0 +1,24 @@
+ion-tab-bar {
+    height: 51px;
+}
+
+ion-tab-button {
+    --color-selected: #E76969;
+}
+
+ion-tab-button:active {
+    color: #E76969;
+}
+
+.class-card {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    max-width: 267px;
+    max-height: 40px;
+}
+
+.class-button{
+    width: 267px;
+    height: 40px;
+}
