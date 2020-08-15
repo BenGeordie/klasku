@@ -1,16 +1,9 @@
 import {
-    AnonymousAuthProvider,
     AnonymousCredential,
-    FacebookRedirectCredential,
-    GoogleRedirectCredential,
-    UserPasswordCredential,
-    UserPasswordAuthProvider,
     RemoteMongoClient,
-    Stitch,
-    UserPasswordAuthProviderClient
+    Stitch
 } from "mongodb-stitch-browser-sdk";
-import ObjectID from 'bson-objectid';
-import * as GU from './GU';
+import * as GU from "./GU";
 
 // IMPORTANT: Every function here is an asynchronous function, which returns a promise.
 // To use return value, either call the following functions with an await in an async function:
@@ -25,70 +18,11 @@ import * as GU from './GU';
 
 const DB = "hack";
 const COL = "all";
-const SCHOOLTYPE = 0;
-const TEACHERTYPE = 1;
+const CHATTYPE = 1;
 const CONTENTTYPE = 2;
 
-// QUERY MACROS
-export const safeObjectId = (id) => GU.tryNull(() => ObjectID(id));
-export const OBJECTID = (label, id, other) => typeof id === 'string' ?
-    { [label]: safeObjectId(id), ...other } :
-    { [label]: id, ...other };
-export const _ID = (id, other) => OBJECTID("_id", id, other);
-export const TEACHERID = (id, other) => OBJECTID("teacherId", id, other);
-export const SCHOOLID = (id, other) => OBJECTID("schoolId", id, other);
-export const CLASSID = (id, other) => OBJECTID("classId", id, other);
-export const ALL = () => { return {} };
-export const GETID = (doc) => GU.get(doc, "_id");
-export const GETNAME = (doc) => GU.get(doc, "name");
-export const GETSCHOOL = (doc) => GU.get(doc, "school");
-export const GETTEACHER = (doc) => GU.get(doc, "teacher");
-export const GETPHONENUMBER = (doc) => GU.get(doc, "phoneNumber");
-export const GETPICTURE = (doc) => GU.get(doc, "picture");
-export const GETBIO = (doc) => GU.get(doc, "bio");
-export const GETSENDFREQUENCY = (doc) => GU.get(doc, "frequency");
-
-const school = {
-    name: "",
-    principal: "",
-    teachers: [
-        {
-            name: "",
-            picture: "",
-            classes: [""]
-        }
-    ],
-    classes: [
-        {
-            name: "",
-            picture: "",
-            students: [
-                {
-                    name: "",
-                    picture: ""
-                }
-            ]
-        }
-    ]
-};
-
-const teacher = {
-    name: "",
-    picture: "",
-    school: "",
-    classes: [
-        {
-            name: "",
-            picture: "",
-            students: [
-                {
-                    name: "",
-                    picture: "",
-                    parentNumber: ""
-                }
-            ]
-        }
-    ],
+const CHATSAMPLE = {
+    type: CHATTYPE,
     chat: [
         { // parent
             parent: true,
@@ -102,6 +36,16 @@ const teacher = {
             time: new Date()
         }
     ]
+};
+
+const IMAGESAMPLE = {
+    type: CONTENTTYPE,
+    mediaUrl: "",
+    title: "",
+    caption: "",
+    class: "",
+    teacher: "",
+    time: new Date(),
 };
 
 export async function getClient() {
@@ -122,19 +66,17 @@ export async function collection() {
     return client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas").db(DB).collection(COL);
 }
 
-export async function getTeacher() {
+export async function getChat() {
     const col = await collection();
-    return col.find({id: TEACHERTYPE});
-}
-
-export async function getSchool() {
-    const col = await collection();
-    return col.find({id: SCHOOLTYPE});
+    return GU.get(await col.findOne({id: CHATTYPE}), "chat");
 }
 
 export async function getAllPictures() {
     const col = await collection();
-    return col.find({type: CONTENTTYPE}).sort({time: -1})
+    return col.find(
+        {type: CONTENTTYPE},
+        {sort: {time: -1}}
+    ).asArray();
 }
 
 export async function searchImage(searchString, callback) {
@@ -144,7 +86,7 @@ export async function searchImage(searchString, callback) {
     });
 }
 
-export async function uploadImage(file, title, caption, time, classRoom) {
+export async function uploadImage(file, title, caption, time, classRoom, teacher) {
     let reader  = new FileReader();
     reader.onload = async function(e)  {
         const cloudRes = await fetch(
@@ -159,11 +101,12 @@ export async function uploadImage(file, title, caption, time, classRoom) {
             const url = cloudJson.url;
             const doc = {
                 type: CONTENTTYPE,
-                picture: url,
+                mediaUrl: url,
                 title: title,
                 caption: caption,
+                class: classRoom,
+                teacher: teacher,
                 time: time ? time : new Date(),
-                class: classRoom
             };
             (await collection()).insertOne(doc);
         }
@@ -178,30 +121,19 @@ export async function sendMessage(message) {
     });
 }
 
-// watch teacher
-export async function teacherWatcher(callback) {
+// watch changes in chat
+export async function chatWatcher(callback) {
     const col = await collection();
     const stream = await col.watch({
-        "fullDocument.id": TEACHERTYPE
+        "fullDocument.id": CHATTYPE
     });
     stream.onNext((event) => {
-        const doc = event.fullDocument;
+        const doc = GU.get(event.fullDocument, "chat");
         if (callback) callback(doc);
     });
     return stream;
 }
-// watch admin
-export async function schoolWatcher(callback) {
-    const col = await collection();
-    const stream = await col.watch({
-        "fullDocument.id": SCHOOLTYPE
-    });
-    stream.onNext((event) => {
-        const doc = event.fullDocument;
-        if (callback) callback(doc);
-    });
-    return stream;
-}
+
 // watch new picture
 export async function newPictureWatcher(callback) {
     const col = await collection();
