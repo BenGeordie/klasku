@@ -262,4 +262,49 @@ export class DummyService {
       } 
     ]
   };
+
+  public static classroom = {
+    name: "Language 2C",
+    picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524614/61946811_2059838060987341_6882871330211889152_o.jpg_uhmv1h.jpg",
+    students: [
+      {
+        name: "Asad Finnegan",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524822/69231127_10219827839345863_4599355446493446144_n.jpg_ijleuz.jpg",
+        parentNumber: "081122334455"
+      }, {
+        name: "Hubert Leo",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524879/40603002_1955937104463705_2971425423830810624_n.jpg_r2wnqc.jpg",
+        parentNumber: "081122334455"
+      }, {
+        name: "Kelsie Clay",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524135/69384415_10156302072871875_4073767104342392832_o.jpg_cp4u6k.jpg",
+        parentNumber: "081122334455"
+      }, {
+        name: "Kavita Moses",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524822/69231127_10219827839345863_4599355446493446144_n.jpg_ijleuz.jpg",
+        parentNumber: "081122334455"
+      }, {
+        name: "June Key",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524879/40603002_1955937104463705_2971425423830810624_n.jpg_r2wnqc.jpg",
+        parentNumber: "081122334455"
+      }, {
+        name: "Shaun Leo",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524135/69384415_10156302072871875_4073767104342392832_o.jpg_cp4u6k.jpg",
+        parentNumber: "081122334455"
+      }, {
+        name: "Benito Geordie",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597412405/geordie_aiif5u.png",
+        parentNumber: "081122334455"
+      }, {
+        name: "Sean La Teep",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597412405/geordie_aiif5u.png",
+        parentNumber: "081125645455"
+      }, {
+        name: "Shaun Nic",
+        picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597524135/69384415_10156302072871875_4073767104342392832_o.jpg_cp4u6k.jpg",
+        parentNumber: "081122339999"
+      }
+    ]
+  }
+
 }
