@@ -71,4 +71,29 @@ export class Tab3Page {
   viewClassDetail() {
     this.navCtrl.navigateForward('tabs/classroom-profile');
   }
+
+  getSentimentScore() {
+    return 'XX'
+  }
+
+  getEngagementLevel() {
+    return 'XX'
+  }
+
+  getAverageMessages() {
+    return 'XX'
+  }
+
+  getTotalMessages() {
+    return 'XX'
+  }
+
+  getTotalStudents() {
+    return 'XX'
+  }
+
+  getTotalPosts() {
+    return 'XX'
+  }
+
 }
