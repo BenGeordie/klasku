@@ -38,7 +38,7 @@ export class PhotoService {
     const base64Data = await this.readAsBase64(cameraPhoto);
 
     console.log(base64Data);
-    await this.geordie.uploadImage(base64Data, "my portrait", "my face", new Date(), "yea", "Ibu Lea");
+    await this.geordie.uploadImageBase64(base64Data, "my portrait", "my face", new Date(), "yea", "Ibu Lea");
 
     // Write the file to the data directory
     const fileName = new Date().getTime() + '.jpeg';
@@ -60,6 +60,10 @@ export class PhotoService {
     // Fetch the photo, read as a blob, then convert to base64 format
     const response = await fetch(cameraPhoto.webPath!);
     const blob = await response.blob();
+
+    
+    console.log(blob);
+    
     return (await this.convertBlobToBase64(blob)) as string;
   }
   convertBlobToBase64 = (blob: Blob) =>
