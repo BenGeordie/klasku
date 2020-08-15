@@ -42,4 +42,16 @@ export class Tab2Page {
     });
   }
 
+  getSentimentScore() {
+    return 'XX'
+  }
+
+  getEngagementLevel() {
+    return 'XX'
+  }
+
+  getAverageMessages() {
+    return 'XX'
+  }
+
 }
