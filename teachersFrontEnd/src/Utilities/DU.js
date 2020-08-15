@@ -95,8 +95,10 @@ export async function searchImage(searchString, callback) {
 }
 
 export async function uploadImage(file, title, caption, time, classRoom, teacher) {
+    console.log(file);
     let reader  = new FileReader();
     reader.onload = async function(e)  {
+        console.log(e.target.result);
         const cloudRes = await fetch(
             "https://api.cloudinary.com/v1_1/deqpjsxud/image/upload", {
                 method: 'POST',
