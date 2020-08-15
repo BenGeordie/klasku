@@ -4,7 +4,7 @@ import {
   RemoteMongoClient,
   Stitch
 } from "mongodb-stitch-browser-sdk";
-import { DummyService } from './dummy.service'
+import { DummyService } from './dummy.service';
 import sha1 from 'sha1';
 
 @Injectable({
@@ -126,7 +126,7 @@ export class GeordieService {
   public async uploadImageBase64(file, title, caption, time, classRoom, teacher) {
     const timestamp = Math.round((new Date()).getTime() / 1000);
     const secret = "iQGiAgXkaFyd-4L4fFF9mWyQucQ";
-    const signature = sha1(`timestamp=${timestamp}${secret}`);
+    const signature = this.sha1(`timestamp=${timestamp}${secret}`);
     const cloudRes = await fetch(
         "https://api.cloudinary.com/v1_1/dejr26gaj/image/upload", {
           method: 'POST',
