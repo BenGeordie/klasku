@@ -8,17 +8,13 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  public down : boolean = true;
-  public lowLimit: number = 3;
-  public limit: number = this.lowLimit;
 
   public classes = [];
   public parentChats = [];
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
   ) {
-    this.down = true;
   }
 
   ngOnInit() {
