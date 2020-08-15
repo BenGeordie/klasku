@@ -7,32 +7,107 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: var(--warmWhite);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: var(--sizeP);
+  color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.plain {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  width: 70%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.weekly {
+
+}
+
+.block {
+
+}
+
+.block.even {
+  background-color: var(--warmWhite);
+}
+
+.block.odd {
+  background-color: var(--salmon);
+}
+
+.block-image {
+  width: 100%;
+}
+
+.textBlock {
+  padding: 1em 3.5em 2.5em 1.8em;
+  text-align: start;
+}
+
+.textBlock-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: var(--sizeH1);
+  margin-bottom: 0.5em;
+}
+
+.textBlock-title.even {
+  color: var(--salmon);
+}
+
+.textBlock-title.odd {
+  color: var(--warmWhite)
+}
+
+.textBlock-body {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: var(--sizeP);
+  margin-bottom: 1.5em;
+}
+
+.textBlock-body.even {
+  color: var(--paraBlack);
+}
+
+.textBlock-body.odd {
+  color: var(--paraWhite);
+}
+
+@media only screen and (orientation: landscape) {
+  .plain {
   }
-  to {
-    transform: rotate(360deg);
+
+  .weekly {
+  }
+
+  .block {
+    display: flex;
+    padding: 10% 0;
+  }
+
+  .block-image {
+    width: 60%;
+  }
+
+  .textBlock {
+    width: 25%;
+    padding: 0 10% 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .textBlock-title {
+
+  }
+
+  .textBlock-body {
+
   }
 }
