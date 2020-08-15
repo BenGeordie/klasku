@@ -15,4 +15,8 @@ export class EditPostPage implements OnInit {
   ngOnInit() {
   }
 
+  queuePost() {
+
+  }
+
 }

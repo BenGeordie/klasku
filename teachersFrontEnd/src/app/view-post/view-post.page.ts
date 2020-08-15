@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-view-post',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPostPage implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
 
+  constructor(public navCtrl: NavController ){
+  }
+
+  popView(){
+    console.log("please steve wozniak help us");
+    this.navCtrl.navigateBack('/route');
+  }
 }
