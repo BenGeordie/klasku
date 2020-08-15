@@ -101,17 +101,21 @@ export class GeordieService {
         });
     const cloudJson = await cloudRes.json();
     if (cloudJson && cloudJson.url) {
-      const url = cloudJson.url;
       const doc = {
-        type: GeordieService.CONTENTTYPE,
-        mediaUrl: url,
+        mediaUrl: cloudJson.url,
         title: title,
         caption: caption,
-        class: classRoom,
+        classroom: classRoom,
         teacher: teacher,
         time: time ? time : new Date(),
       };
-      return (await GeordieService.collection()).insertOne(doc);
+      await fetch(
+          "https://webhooks.mongodb-realm.com/api/client/v2.0/app/klasku-owyck/service/getInfo/incoming_webhook/addPicture", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: doc
+          });
+
     }
   };
 

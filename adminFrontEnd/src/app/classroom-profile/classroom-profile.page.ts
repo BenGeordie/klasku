@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { DummyService } from "../services/dummy.service";
+import { GeordieService } from "../services/geordie.service";
 
 @Component({
   selector: 'app-classroom-profile',
@@ -63,10 +65,17 @@ export class ClassroomProfilePage implements OnInit {
   }
 
   getTotalStudents() {
-    return 'XX'
+    const studentSet = new Set();
+    DummyService.school.classes.forEach(classroom => {
+      classroom.students.forEach(student => {
+        studentSet.add(student.name);
+      });
+    });
+    return studentSet.size;
   }
 
   getTotalPosts() {
+    GeordieService.()
     return 'XX'
   }
 
