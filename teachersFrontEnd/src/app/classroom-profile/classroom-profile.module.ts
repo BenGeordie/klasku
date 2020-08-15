@@ -23,18 +23,4 @@ import {ComponentsModule} from '../components/components.module';
   declarations: [ClassroomProfilePage]
 })
 export class ClassroomProfilePageModule {  
-  constructor(public alertController: AlertController) {}
-  
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
-      buttons: ['OK']
-    });
-  
-    await alert.present();
-    let result = await alert.onDidDismiss();
-    console.log(result);
-  }
 }  

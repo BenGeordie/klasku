@@ -94,20 +94,21 @@
 
     <ion-row class="ion-justify-content-center">
       <ion-col size="auto" style="padding-top: 15px;" class="ion-justify-content-center">
-        <ion-button class="view-class-photos" (click) = "sharingSettings()">View Photos</ion-button>
+        <ion-button class="view-class-photos" (click) = "viewClassPhotos()">View Photos</ion-button>
       </ion-col>
 
       <ion-col size="auto" style="padding-top: 15px;" class="ion-justify-content-center">
-          <ion-select interface="popover" class="sharing-settings">
+        <ion-button cssClass="my-custom-class" class="view-class-photos" (click)="presentAlertRadio()">Frequency</ion-button>  
+        <!-- <ion-select style="--placeholder--color: #E76969" placeholder="Frequency" class="sharing-settings">
             <ion-select-option value="daily">Share Daily</ion-select-option>
             <ion-select-option value="weekly">Share Weekly</ion-select-option>
             <ion-select-option value="biweekly">Share Biweekly</ion-select-option>
-          </ion-select>     
+          </ion-select>      -->
          
       </ion-col>
 
       <ion-col size="auto" style="padding-top: 15px;" class="ion-justify-content-center">
-        <ion-button class="view-class-photos" (click)="presentAlert()">Share Early</ion-button>
+        <ion-button cssClass="my-custom-class" class="view-class-photos" (click)="presentAlert()">Share Early</ion-button>
       </ion-col>
 
     </ion-row>
