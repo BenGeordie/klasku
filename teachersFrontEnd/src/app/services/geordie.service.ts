@@ -102,7 +102,7 @@ export class GeordieService {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
             body: "file=" + encodeURIComponent(e.target.result as string) +
-                "&api_key=643636984455417&signature=de8e536b88a8491d0b42120fda812e642377a1af"
+                "&api_key=712697848369561&signature=de8e536b88a8491d0b42120fda812e642377a1af"
           });
       const cloudJson = await cloudRes.json();
       if (cloudJson && cloudJson.url) {
@@ -124,11 +124,11 @@ export class GeordieService {
 
   public async uploadImageBase64(file, title, caption, time, classRoom, teacher) {
     const cloudRes = await fetch(
-        "https://api.cloudinary.com/v1_1/deqpjsxud/image/upload", {
+        "https://api.cloudinary.com/v1_1/dejr26gaj/image/upload", {
           method: 'POST',
           headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
           body: "file=" + encodeURIComponent(file) +
-              "&api_key=643636984455417&signature=de8e536b88a8491d0b42120fda812e642377a1af"
+              "&api_key=712697848369561&signature=de8e536b88a8491d0b42120fda812e642377a1af"
         });
     const cloudJson = await cloudRes.json();
     if (cloudJson && cloudJson.url) {
