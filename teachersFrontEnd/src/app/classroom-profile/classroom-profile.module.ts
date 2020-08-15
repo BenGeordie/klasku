@@ -8,11 +8,14 @@ import { ClassroomProfilePageRoutingModule } from './classroom-profile-routing.m
 
 import { ClassroomProfilePage } from './classroom-profile.page';
 
+import {ComponentsModule} from '../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     ClassroomProfilePageRoutingModule
   ],
   declarations: [ClassroomProfilePage]

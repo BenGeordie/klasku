@@ -56,7 +56,7 @@ export class Tab3Page {
         name: 'Bianca Kurniawan',
         phoneNum: '+12345'
       }
-    ]
+    ];
   }
 
   goToChatting() {
