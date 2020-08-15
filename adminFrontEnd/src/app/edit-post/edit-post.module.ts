@@ -8,12 +8,18 @@ import { EditPostPageRoutingModule } from './edit-post-routing.module';
 
 import { EditPostPage } from './edit-post.page';
 
+import { ComponentsModule } from '../components/components.module';
+
+import { Chart } from 'chart.js';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditPostPageRoutingModule
+    EditPostPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [EditPostPage]
 })

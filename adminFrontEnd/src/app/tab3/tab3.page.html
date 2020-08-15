@@ -25,26 +25,95 @@
     <ion-row class="ion-justify-content-center">
       <ion-col>
         <ion-text style="text-align: center; font-size: 26px;" color = "secondary">
-          <h1 style="margin-top: 10px; margin-bottom: 0px;">Emma Wat Sun</h1>
+          <h1 style="margin-top: 0px; margin-bottom: 0px;">Sekolah Contoh</h1>
         </ion-text>
-        <ion-text style="text-align: center;">
-          <h3 style="font-size: 14px; margin-top: 0px; margin-bottom: 4px; color: rgba(255, 255, 255, 0.5);">Sekolah Contoh</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+        <ion-text style="text-align: center; 
+        " color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          width: 80px;
+          text-align: center;">106</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+        <ion-text style="text-align: center; 
+        " color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          width: 80px;
+          text-align: center;">106</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+        <ion-text style="text-align: center; 
+        " color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 20px;
+          width: 80px;
+          text-align: center;">106</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+        <ion-text style="text-align: center; 
+        " color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
+          font-weight: normal;
+          font-size: 10px;
+          line-height: 12px;
+          width: 80px;
+          text-align: center;">Teachers</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+        <ion-text style="text-align: center; 
+        " color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
+          font-weight: normal;
+          font-size: 10px;
+          line-height: 12px;
+          width: 80px;
+          text-align: center;">Students</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+        <ion-text style="text-align: center; 
+        " color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
+          font-weight: normal;
+          font-size: 10px;
+          line-height: 12px;
+          width: 80px;
+          text-align: center;">Posts</h1>
         </ion-text>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-justify-content-center">
-        <ion-button class="sharing-settings" (click) = "sharingSettings()">Sharing Settings</ion-button>
+        <ion-button class="edit-school-info">Edit School Info</ion-button>
       </ion-col>
     </ion-row>
 
   </ion-grid>
 
-  <ion-button color="light" (click) = "sharingSettings()">Sharing Settings</ion-button>
-  <ion-button color="light" (click) = "viewClassDetail()">Temp Button to View Class</ion-button>
-  <ion-button color="light" (click) = "goToChatting()">Chatting</ion-button>
 
-  <app-with-picture title="School Classes" [data]="schoolClasses" limited= "true" navigationRoute = "tabs/admin-classroom"></app-with-picture>
-  <app-with-picture title="Teachers" [data]="schoolTeachers" limited= "true" navigationRoute = "tabs/admin-teacher"></app-with-picture>
+  <app-with-picture title="School Classes" [classes]="classes" limited= "true"></app-with-picture>
+
+  <app-with-picture title="Teachers" [classes]="classes" limited= "true"></app-with-picture>
+  <ion-button color="light" (click) = "viewClassDetail()">Temp Button to View Class</ion-button>
+
 </ion-content>
