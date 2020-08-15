@@ -33,12 +33,6 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-justify-content-center">
-      <ion-col class="ion-justify-content-center">
-        <ion-button class="sharing-settings" (click) = "sharingSettings()">Sharing Settings</ion-button>
-      </ion-col>
-    </ion-row>
-
   </ion-grid>
 
 
@@ -46,7 +40,6 @@
 
   <app-contact-list title="Recent Parent Chats" [chats]="parentChats"></app-contact-list>
 
-  <ion-button color="light" (click) = "sharingSettings()">Sharing Settings</ion-button>
   <ion-button color="light" (click) = "viewClassDetail()">Temp Button to View Class</ion-button>
   <ion-button color="light" (click) = "goToChatting()">Chatting</ion-button>
 

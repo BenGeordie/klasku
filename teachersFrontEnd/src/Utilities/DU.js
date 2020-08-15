@@ -3,7 +3,6 @@ import {
     RemoteMongoClient,
     Stitch
 } from "mongodb-stitch-browser-sdk";
-import * as GU from "./GU";
 
 // IMPORTANT: Every function here is an asynchronous function, which returns a promise.
 // To use return value, either call the following functions with an await in an async function:
@@ -20,6 +19,14 @@ const DB = "hack";
 const COL = "all";
 const CHATTYPE = 1;
 const CONTENTTYPE = 2;
+
+export const get = (nestedObj, path, defaultValue) => {
+    if (path === "") return nestedObj;
+    let pathArr = path.split('.');
+    const getValue = pathArr.reduce((obj, key) =>
+        (obj && obj[key] !== undefined) ? obj[key] : undefined, nestedObj); // used to be !== 'undefined'
+    return (getValue === undefined || getValue === null) && defaultValue !== undefined ? defaultValue : getValue;
+};
 
 const CHATSAMPLE = {
     type: CHATTYPE,
@@ -45,10 +52,11 @@ const IMAGESAMPLE = {
     caption: "",
     class: "",
     teacher: "",
+    path: [],
     time: new Date(),
 };
 
-export async function getClient() {
+async function getClient() {
     const appId = 'klasku-owyck';
     const client = Stitch.hasAppClient(appId)
         ? Stitch.getAppClient(appId)
@@ -61,14 +69,14 @@ export async function getClient() {
 }
 
 // If nothing or null is passed to the client argument, the function calls getClient() by default.
-export async function collection() {
+async function collection() {
     const client = await getClient();
     return client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas").db(DB).collection(COL);
 }
 
 export async function getChat() {
     const col = await collection();
-    return GU.get(await col.findOne({id: CHATTYPE}), "chat");
+    return get(await col.findOne({id: CHATTYPE}), "chat");
 }
 
 export async function getAllPictures() {
@@ -130,7 +138,7 @@ export async function chatWatcher(callback) {
         "fullDocument.id": CHATTYPE
     });
     stream.onNext((event) => {
-        const doc = GU.get(event.fullDocument, "chat");
+        const doc = get(event.fullDocument, "chat");
         if (callback) callback(doc);
     });
     return stream;
