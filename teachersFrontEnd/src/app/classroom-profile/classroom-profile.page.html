@@ -1,9 +1,54 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>classroomProfile</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
 
-<ion-content>
+  <img style="position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;" src="../../assets/red-header.png"/>
 
+  <ion-grid style="--ion-grid-padding: 0;" class="above-z-index">
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto" style="padding: 0; margin: 0; margin-top: 30px; margin-bottom: 15px;" class="ion-justify-content-center">
+        <ion-avatar>
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="auto" style="margin-top: 30px; margin-bottom: 15px;">
+        <ion-text style="text-align: center; font-size: 26px;" color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; padding-left: 11px;">Class 1A</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center class-info-row">
+      <ion-col class="ion-justify-content-center">
+        <ion-text style="text-align: center; font-size: 26px;" color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; padding-left: 11px;">Stat X</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <ion-text style="text-align: center; font-size: 26px;" color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; padding-left: 11px;">Stat X</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col class="ion-justify-content-center">
+        <ion-text style="text-align: center; font-size: 26px;" color = "secondary">
+          <h1 style="margin-top: 0; margin-bottom: 0px; padding-left: 11px;">Stat X</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col style="padding-top: 15px;" class="ion-justify-content-center">
+        <ion-button class="sharing-settings" (click) = "sharingSettings()">View Class Photos</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-button color="light" (click) = "sharingSettings()">Sharing Settings</ion-button>
+  <ion-button color="light" (click) = "viewClassDetail()">Temp Button to View Class</ion-button>
+  <ion-button color="light" (click) = "goToChatting()">Chatting</ion-button>
+
+  <app-with-picture title="Your Classes" [classes]="classes" limited= "true"></app-with-picture>
 </ion-content>
