@@ -13,6 +13,7 @@ export class Tab3Page {
   public limit: number = this.lowLimit;
 
   public classes = [];
+  public parentChats = [];
 
   constructor(
     private navCtrl: NavController
@@ -41,7 +42,21 @@ export class Tab3Page {
         name : 'Physics 1B',
         students: ['Andrew', 'Raindy', 'Sebastian', 'Nate'],
         imageUrl: 'https://via.placeholder.com/100'
-      }]
+      }];
+    this.parentChats = [
+      {
+        name: 'Hengy Setiawan',
+        phoneNum: '+12345'
+      },
+      {
+        name: 'Lidia Gunawan',
+        phoneNum: '+12345'
+      },
+      {
+        name: 'Bianca Kurniawan',
+        phoneNum: '+12345'
+      }
+    ]
   }
 
   goToChatting() {
