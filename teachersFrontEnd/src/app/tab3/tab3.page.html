@@ -41,11 +41,13 @@
 
   </ion-grid>
 
+
+  <app-with-picture title="Your Classes" [classes]="classes" limited= "true"></app-with-picture>
+
+  <app-contact-list title="Recent Parent Chats" [chats]="parentChats"></app-contact-list>
+
   <ion-button color="light" (click) = "sharingSettings()">Sharing Settings</ion-button>
   <ion-button color="light" (click) = "viewClassDetail()">Temp Button to View Class</ion-button>
   <ion-button color="light" (click) = "goToChatting()">Chatting</ion-button>
 
-  <app-with-picture title="Your Classes" [classes]="classes" limited= "true"></app-with-picture>
-
-  <app-contact-list title = "Recent Parent Chats" [chats]="parentChats"></app-contact-list>
 </ion-content>
