@@ -73,7 +73,10 @@ export async function getChat() {
 
 export async function getAllPictures() {
     const col = await collection();
-    return col.find({type: CONTENTTYPE}).sort({time: -1})
+    return col.find(
+        {type: CONTENTTYPE},
+        {sort: {time: -1}}
+    ).asArray();
 }
 
 export async function searchImage(searchString, callback) {
