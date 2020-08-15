@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'chatting',
+        loadChildren: () => import('../chatting/chatting.module').then( m => m.ChattingPageModule)
+      },
+      {
         path: 'view-post',
         loadChildren: () => import('../view-post/view-post.module').then( m => m.ViewPostPageModule)
       },

@@ -41,36 +41,9 @@
 
   </ion-grid>
 
-<<<<<<< HEAD
   <ion-button color="light" (click) = "sharingSettings()">Sharing Settings</ion-button>
   <ion-button color="light" (click) = "viewClassDetail()">Temp Button to View Class</ion-button>
+  <ion-button color="light" (click) = "goToChatting()">Chatting</ion-button>
 
- 
-    <ion-card>
-      <ion-list>
-        <ion-list-header>
-          Your Classes
-        </ion-list-header>
-
-
-        <!-- <ng-template ngFor let-class [ngForOf]="classes"  let-i="index" >
-          <div *ngIf=" i < limit">
-              {{class.name}}
-          </div>
-        </ng-template> -->
-        <ion-item *ngFor = "let class of classes | slice:0:limit; let i=index">
-          <ion-avatar slot="start">
-            <img src={{class.imageUrl}}>
-          </ion-avatar>
-          <ion-label>
-            <h2>{{class.name}}</h2>
-            <p>{{class.students[0]}}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-      <ion-icon *ngIf = "down === true" (click) = "flip()" (click) = "increaseLimit()" name="chevron-down-outline"></ion-icon>
-      <ion-icon *ngIf = "down === false" (click) = "flip()" (click) = "decreaseLimit()" name="chevron-up-outline"></ion-icon>
-    </ion-card>
-=======
->>>>>>> 704b8fe69313ec443c2449f7a974545d386cc2fa
+  <app-with-picture title="Your Classes" [classes]="classes" limited= "true"></app-with-picture>
 </ion-content>

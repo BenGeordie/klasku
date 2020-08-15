@@ -43,16 +43,9 @@ export class Tab3Page {
         imageUrl: 'https://via.placeholder.com/100'
       }]
   }
-  flip() {
-    this.down = !this.down;
-  }
 
-  increaseLimit() { 
-    this.limit = this.classes.length;
-  }
-
-  decreaseLimit() {
-    this.limit = this.lowLimit;
+  goToChatting() {
+    this.navCtrl.navigateForward('tabs/chatting');
   }
   sharingSettings() {
     this.navCtrl.navigateForward('tabs/sharing');
