@@ -1,0 +1,64 @@
+ion-content {
+    --ion-background-color: #F9F7F3;
+}
+
+.topbar-shape {
+    --background: #E76969;
+}
+
+.back-arrow {
+    width: 24px;
+    height: 24px;
+    padding-left: 6px;
+}
+
+.ion-justify-content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ion-justify-content-start {
+    justify-content: flex-start;
+}
+
+.ion-justify-content-end {
+    justify-content: flex-end;
+    float: right;
+}
+
+.caption {
+    max-width: 76vw;
+    float: left; margin-right: 12vw; margin-left: 12vw; font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    word-wrap: break-word;
+}
+
+.class-button {
+    width: 285px;
+    height: 40px;
+}
+
+.class-button-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 17px;
+    padding-bottom: 12px;
+    /* identical to box height */
+}
+
+.class-list-title {
+    width: 76vw;
+    float: left; 
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    word-wrap: break-word;
+}

@@ -1,0 +1,50 @@
+ion-content {
+    --ion-background-color: #F9F7F3;
+}
+
+.topbar-shape {
+    --background: #E76969;
+}
+
+.back-arrow {
+    width: 24px;
+    height: 24px;
+    padding-left: 6px;
+}
+
+.ion-justify-content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.class-list-title {
+    width: 256px;
+    height: 17px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+.class-button {
+    width: 267px;
+    height: 40px;
+    --background-activated: #CA4545;
+}
+
+.class-button-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 17px;
+    padding-bottom: 12px;
+    /* identical to box height */
+}
