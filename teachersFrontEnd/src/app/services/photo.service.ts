@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import * as DU from "../../Utilities/DU.js";
+import {GeordieService} from './geordie.service';
 
 import {
   Plugins,
@@ -18,7 +19,7 @@ const { Camera, Filesystem, Storage } = Plugins;
 export class PhotoService {
   public photos: Photo[] = [];
 
-  constructor() {}
+  constructor(private geordie : GeordieService) {}
 
   public async addNewToGallery() {
     // Take a photo
@@ -37,9 +38,10 @@ export class PhotoService {
     const base64Data = await this.readAsBase64(cameraPhoto);
 
     console.log(base64Data);
+    await this.geordie.uploadImage(base64Data, "my portrait", "my face", new Date(), "yea", "Ibu Lea");
 
     // Write the file to the data directory
-    const fileName = new Date().getTime() + ".jpeg";
+    const fileName = new Date().getTime() + '.jpeg';
     const savedFile = await Filesystem.writeFile({
       path: fileName,
       data: base64Data,
