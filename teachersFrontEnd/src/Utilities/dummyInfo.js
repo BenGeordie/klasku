@@ -1,11 +1,11 @@
 export const teacher = {
-    name: "Emma Wat Sun",
-    picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597412405/geordie_aiif5u.png",
+    name: "Hubert Leo",
+    picture: "../assets/hubert.png",
     school: "Sekolah Contoh",
     classes: [
         {
-            name: "Agama 1A",
-            picture: "https://res.cloudinary.com/dejr26gaj/image/upload/v1597412356/sample.jpg",
+            name: "Physics 1A",
+            picture: "../assets/physics1a.png",
             students: [
                 {
                     name: "Benito Geordie",
