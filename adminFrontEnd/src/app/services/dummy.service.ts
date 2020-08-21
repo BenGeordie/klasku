@@ -101,20 +101,4 @@ export class DummyService {
       }
     ]
   };
-
-  // getTeacherName() {
-  //   return this.teacher.name;
-  // }
-
-  // getTeacherSchool() {
-  //   return this.teacher.school;
-  // }
-
-  // getTeacherPictureUrl() {
-  //   return this.teacher.picture;
-  // }
-
-  // getTeacherClassesArray() {
-  //   return this.teacher.classes;
-  // }
 }

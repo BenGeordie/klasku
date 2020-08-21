@@ -6,8 +6,6 @@ import {
 } from "mongodb-stitch-browser-sdk";
 import { DummyService } from './dummy.service';
 
-import { sha1 } from '@sha1';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +17,6 @@ export class GeordieService {
   public static COL = "all";
   public static CHATTYPE = 1;
   public static CONTENTTYPE = 2;
-  sha1 = require('sha1');
-  
 
   public static get = (nestedObj, path, defaultValue = null) => {
     if (path === "") return nestedObj;
@@ -95,63 +91,6 @@ export class GeordieService {
       callback(result) // Output: 7
     });
   }
-
-  public async uploadImage(file, title, caption, time, classRoom, teacher) {
-    console.log(file);
-    let reader  = new FileReader();
-    reader.onload = async function(e)  {
-      console.log(e.target.result);
-      const cloudRes = await fetch(
-          'https://api.cloudinary.com/v1_1/deqpjsxud/image/upload', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
-            body: "file=" + encodeURIComponent(e.target.result as string) +
-                "&api_key=712697848369561&signature=de8e536b88a8491d0b42120fda812e642377a1af"
-          });
-      const cloudJson = await cloudRes.json();
-      if (cloudJson && cloudJson.url) {
-        const url = cloudJson.url;
-        const doc = {
-          type: GeordieService.CONTENTTYPE,
-          mediaUrl: url,
-          title: title,
-          caption: caption,
-          class: classRoom,
-          teacher: teacher,
-          time: time ? time : new Date(),
-        };
-        (await GeordieService.collection()).insertOne(doc);
-      }
-    };
-    reader.readAsDataURL(file);
-  }
-
-  public async uploadImageBase64(file, title, caption, time, classRoom, teacher) {
-    const timestamp = Math.round((new Date()).getTime() / 1000);
-    const secret = "iQGiAgXkaFyd-4L4fFF9mWyQucQ";
-    const signature = sha1(`timestamp=${timestamp}${secret}`);
-    const cloudRes = await fetch(
-        "https://api.cloudinary.com/v1_1/dejr26gaj/image/upload", {
-          method: 'POST',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'},
-          body: "file=" + encodeURIComponent(file) +
-              "&api_key=712697848369561&signature=" + signature
-        });
-    const cloudJson = await cloudRes.json();
-    if (cloudJson && cloudJson.url) {
-      const url = cloudJson.url;
-      const doc = {
-        type: GeordieService.CONTENTTYPE,
-        mediaUrl: url,
-        title: title,
-        caption: caption,
-        class: classRoom,
-        teacher: teacher,
-        time: time ? time : new Date(),
-      };
-      return (await GeordieService.collection()).insertOne(doc);
-    }
-  };
 
   public async sendMessage(message) {
     const client = await GeordieService.getClient();

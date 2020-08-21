@@ -23,35 +23,35 @@
     <ion-row class="ion-justify-content-center">
       <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
         <ion-text style="text-align: center; 
-        " color = "secondary">
+        " color="secondary">
           <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
           font-weight: bold;
           font-size: 16px;
           line-height: 20px;
           width: 80px;
-          text-align: center;">106</h1>
+          text-align: center;">{{getTotalMessages()}}</h1>
         </ion-text>
       </ion-col>
       <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
         <ion-text style="text-align: center; 
-        " color = "secondary">
+        " color="secondary">
           <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
           font-weight: bold;
           font-size: 16px;
           line-height: 20px;
           width: 80px;
-          text-align: center;">106</h1>
+          text-align: center;">{{getTotalStudents()}}</h1>
         </ion-text>
       </ion-col>
       <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
         <ion-text style="text-align: center; 
-        " color = "secondary">
+        " color="secondary">
           <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
           font-weight: bold;
           font-size: 16px;
           line-height: 20px;
           width: 80px;
-          text-align: center;">106</h1>
+          text-align: center;">{{getTotalPosts()}}</h1>
         </ion-text>
       </ion-col>
     </ion-row>
@@ -59,7 +59,7 @@
     <ion-row class="ion-justify-content-center">
       <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
         <ion-text style="text-align: center; 
-        " color = "secondary">
+        " color="secondary">
           <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
           font-weight: normal;
           font-size: 10px;
@@ -70,7 +70,7 @@
       </ion-col>
       <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
         <ion-text style="text-align: center; 
-        " color = "secondary">
+        " color="secondary">
           <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
           font-weight: normal;
           font-size: 10px;
@@ -81,7 +81,7 @@
       </ion-col>
       <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
         <ion-text style="text-align: center; 
-        " color = "secondary">
+        " color="secondary">
           <h1 style="margin-top: 0; margin-bottom: 0px; font-style: normal;
           font-weight: normal;
           font-size: 10px;
@@ -98,7 +98,162 @@
       </ion-col>
     </ion-row>
 
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-justify-content-center">
+                
+        <!-- THIS IS THE ANALYTICS CARD - IDK HOW TO MAKE AC OIMPONENT SO IM MAKING ITHERE FIRSY -->
+
+        <ion-card style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px; --background: white; margin-right: 0; margin-left: 0; margin-bottom: 0; width: 343px;" color="secondary">
+          <ion-list lines="none" color="secondary">
+            <ion-grid style="background: white;">
+
+              <ion-row>
+                <ion-col style="width: 70%; padding: 0;">
+                  <ion-list-header style="--background: white; --color: #E76969; padding-bottom: 4px;" >
+                    Class Overview
+                  </ion-list-header>
+                </ion-col>
+                <ion-col size="auto" style="padding: 0; background: white;">
+                  <ion-icon style="width: 24px; height: 24px; padding-top: 15px; padding-right: 19px;" color="tertiary" name="help-circle-outline"></ion-icon>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="ion-justify-content-center">
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 0; margin-bottom: 5px; font-weight: normal;
+                    font-size: 12px;
+                    line-height: 15px;
+                    text-align: center;     
+                    width: 260px;     
+                    height: 20px;
+                    word-wrap: break-word;
+                    padding-top: 5px;
+                    color: #000000;">Parent Chat Sentiment Over Past Week</h1>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              
+              <ion-row class="ion-justify-content-center">
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+
+
+
+                      <canvas #barChart></canvas>
+
+
+                </ion-col>
+              </ion-row>
+
+              <ion-row style="margin-top: 6px;"class="ion-justify-content-center">
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 0; margin-bottom: 0px; font-weight: normal;
+                    font-size: 12px;
+                    line-height: 15px;
+                    text-align: center;     
+                    width: 130px;     
+                    height: 30px;
+                    word-wrap: break-word;
+                    color: #000000;">Parent Chat Sentiment Score</h1>
+                  </ion-text>
+                </ion-col>
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 0; margin-bottom: 0px; font-weight: normal;
+                    font-size: 12px;
+                    line-height: 15px;
+                    text-align: center;     
+                    width: 130px;     
+                    height: 30px;
+                    word-wrap: break-word;
+                    color: #000000;">Average Parent Engagement Level</h1>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="ion-justify-content-center">
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 0; margin-bottom: 0px; font-weight: normal;
+                    font-size: 45px;
+                    line-height: 55px;
+                    text-align: center;
+                    color: #E76969;  
+                    width: 130px;     
+                    height: 54px;
+                    word-wrap: break-word;">
+                    {{getSentimentScore()}}</h1>
+                  </ion-text>
+                </ion-col>
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 0; margin-bottom: 0px; font-weight: normal;
+                    font-size: 45px;
+                    line-height: 55px;
+                    text-align: center;
+                    color: #E76969;  
+                    width: 130px;     
+                    height: 54px;
+                    word-wrap: break-word;">
+                    {{getEngagementLevel()}}</h1>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="ion-justify-content-center">
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 4px; margin-bottom: 0px; font-weight: normal;
+                    font-size: 12px;
+                    line-height: 15px;
+                    text-align: center;     
+                    width: 130px;     
+                    height: 30px;
+                    word-wrap: break-word;
+                    color: #000000;">Average Daily Parent Messages</h1>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="ion-justify-content-center">
+                <ion-col style="padding: 0" size="auto" class="ion-justify-content-center">
+                  <ion-text style="text-align: center; 
+                  " color = "tertiary">
+                    <h1 style="margin-top: 0; margin-bottom: 0px; font-weight: normal;
+                    font-size: 45px;
+                    line-height: 55px;
+                    text-align: center;
+                    color: #E76969;  
+                    width: 130px;     
+                    height: 54px;
+                    margin-bottom: 6px;
+                    word-wrap: break-word;">
+                    {{getAverageMessages()}}</h1>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+
+            </ion-grid>
+
+          </ion-list>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
   <app-contact-list title = "Students Enrolled" [chats]="parentChats"></app-contact-list>
+
+  
+
 </ion-content>
